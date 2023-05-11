@@ -1,7 +1,7 @@
 package ru.netology.stats;
 
 import org.junit.jupiter.api.Test;
-import ru.netology.stats.StatsService;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class StatsServiceTest {
@@ -10,7 +10,7 @@ public class StatsServiceTest {
     void sumSales() {
         StatsService service = new StatsService();
 
-        long sales[] = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
 
         // вызываем целевой метод:
         int expected = 180;
@@ -21,10 +21,10 @@ public class StatsServiceTest {
     }
 
     @Test
-    void MiddleSales( ) {
+    void MiddleSales() {
         StatsService service = new StatsService();
 
-        long sales[] = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
 
         // вызываем целевой метод:
         double expected = 15;
@@ -35,11 +35,11 @@ public class StatsServiceTest {
     }
 
     @Test
-    void minSales( ) {
+    void minSales() {
         StatsService service = new StatsService();
 
 
-        long sales[] = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
 
         // вызываем целевой метод:
         int actual = service.minSales(sales);
@@ -50,11 +50,11 @@ public class StatsServiceTest {
     }
 
     @Test
-    void maxSales( ) {
+    void maxSales() {
         StatsService service = new StatsService();
 
 
-        long sales[] = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
 
         // вызываем целевой метод:
         int actual = service.maxSales(sales);
@@ -65,11 +65,11 @@ public class StatsServiceTest {
     }
 
     @Test
-    void lessThanMiddleSales( ) {
+    void lessThanMiddleSales() {
         StatsService service = new StatsService();
 
 
-        long sales[] = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
 
         // вызываем целевой метод:
         int actual = service.lessThanMiddleSales(sales);
@@ -79,10 +79,10 @@ public class StatsServiceTest {
     }
 
     @Test
-    void aboveMiddleSales( ) {
+    void aboveMiddleSales() {
         StatsService service = new StatsService();
 
-        long sales[] = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
 
         // вызываем целевой метод:
         int expected = 7;
