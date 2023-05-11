@@ -1,73 +1,75 @@
 package ru.netology.stats;
 
 public class StatsService {
-    public int minSalesInMonth(int[] sales) {
+
+    public int sumSales(long[] sales) {
+        int sumMonth = 0;
+        for (long sale : sales) {
+            sumMonth += sale;
+
+        }
+        return sumMonth;
+    }
+
+    public double middleSales(long[] sales) {
+        double middleSum = 0;
+        double sumMonth = 0;
+
+        sumMonth = sumSales(sales);
+        middleSum = sumMonth / sales.length;
+
+        return middleSum;
+    }
+
+    public int minSales(long[] sales) {
         int minMonth = 0;
-        int month = 0; // переменная для индекса рассматриваемого месяца в массиве
-        for (int sale : sales) {
+        int index = 0; // переменная для индекса рассматриваемого месяца в массиве
+        for (long sale : sales) {
             // sales[minMonth] - продажи в месяце minMonth
             // sale - продажи в рассматриваемом месяце
             if (sale <= sales[minMonth]) {
-                minMonth = month;
+                minMonth = index;
             }
-            month = month + 1; // следующий рассматриваемый месяц имеет номер на 1 больше
+            index = index + 1; // следующий рассматриваемый месяц имеет номер на 1 больше
         }
         return minMonth + 1;
     }
 
-    public int maxSalesInMonth(int[] sales) {
+    public int maxSales(long[] sales) {
         int maxMonth = 0;
-        int month = 0;
-        for (int sale : sales) {
+        int index = 0;
+
+        for (long sale : sales) {
             if (sale >= sales[maxMonth]) {
-                maxMonth = month;
+                maxMonth = index;
             }
-            month = month + 1;
+            index = index + 1;
         }
         return maxMonth + 1;
     }
 
-    public int salesPerMonth(int[] sales) {
-        int perMonth = 0;
-        int sum = 0;
+    public int lessThanMiddleSales(long[] sales) {
+        int lessMiddleMonth = 0;
+        double middleSum = middleSales(sales);
 
-        for (int i = 0; i < sales.length; i++) {
-            sum += sales[i];
-        }
-        return sum / sales.length;
-    }
-
-    public int allSales(int[] sales) {
-        int sum = 0;
-
-        for (int i = 0; i < sales.length; ++i)
-            sum += sales[i];
-        return sum;
-    }
-
-
-    public int monthsInWhichSalesWereBelowAverage(int[] sales) {
-        int sum = 0;
-        int average = salesPerMonth(sales);
-
-        for (int i : sales) {
-            if (i < average) {
-                sum += 1;
-            }
-
-        }
-        return sum;
-    }
-
-    public int monthInWhichSalesWereAboveAverage(int[] sales) {
-        int sum = 0;
-        int average = salesPerMonth(sales);
-
-        for (int i : sales) {
-            if (i > average) {
-                sum += 1;
+        for (long sale : sales) {
+            if (sale <= middleSum) {
+                lessMiddleMonth++;
             }
         }
-        return sum;
+        return lessMiddleMonth;
     }
+
+    public int aboveMiddleSales(long[] sales) {
+        int aboveMiddleMonth = 0;
+        double middleSum = middleSales(sales);
+
+        for (long sale : sales) {
+            if (sale >= middleSum) {
+                aboveMiddleMonth++;
+            }
+        }
+        return aboveMiddleMonth;
+    }
+
 }

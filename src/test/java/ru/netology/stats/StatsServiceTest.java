@@ -1,81 +1,95 @@
 package ru.netology.stats;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import ru.netology.stats.StatsService;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class StatsServiceTest {
+
     @Test
-    public void minMonthSales() {
+    void sumSales() {
         StatsService service = new StatsService();
 
-        int[] sale = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        long sales[] = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
 
-        int expectedMonth = 9;
-        int actualMonth = service.minSalesInMonth(sale);
+        // вызываем целевой метод:
+        int expected = 180;
+        int actual = service.sumSales(sales);
 
-        Assertions.assertEquals(expectedMonth, actualMonth);
+        // производим проверку (сравниваем ожидаемый и фактический):
+        assertEquals(expected, actual);
     }
 
     @Test
-    public void maxMonthSales() {
+    void MiddleSales( ) {
         StatsService service = new StatsService();
 
-        int[] sale = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        long sales[] = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
 
-        int expectedMaxMonth = 8;
-        int actualMaxMonth = service.maxSalesInMonth(sale);
+        // вызываем целевой метод:
+        double expected = 15;
+        double actual = service.middleSales(sales);
 
-        Assertions.assertEquals(expectedMaxMonth, actualMaxMonth);
+        // производим проверку (сравниваем ожидаемый и фактический):
+        assertEquals(expected, actual);
     }
 
     @Test
-    public void averageSalesPerMonth() {
+    void minSales( ) {
         StatsService service = new StatsService();
 
-        int[] sale = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
 
+        long sales[] = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
 
-        int expectedPerMonth = 15;
-        int actualPerMonth = service.salesPerMonth(sale);
+        // вызываем целевой метод:
+        int actual = service.minSales(sales);
+        int expected = 9;
 
-        Assertions.assertEquals(expectedPerMonth, actualPerMonth);
+        // производим проверку (сравниваем ожидаемый и фактический):
+        assertEquals(expected, actual);
     }
 
     @Test
-    public void TheSumOfAllSales() {
+    void maxSales( ) {
         StatsService service = new StatsService();
 
-        int[] sale = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
 
-        int expectedAllSales = 180;
-        int actualAllSales = service.allSales(sale);
+        long sales[] = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
 
-        Assertions.assertEquals(expectedAllSales, actualAllSales);
+        // вызываем целевой метод:
+        int actual = service.maxSales(sales);
+        int expected = 8;
+
+        // производим проверку (сравниваем ожидаемый и фактический):
+        assertEquals(expected, actual);
     }
-
 
     @Test
-    public void numberOfMonthsInWhichSalesWereBelowAverage() {
+    void lessThanMiddleSales( ) {
         StatsService service = new StatsService();
 
-        int[] sale = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
 
-        int expectedBelowAverage = 5;
-        int actualBelowAverage = service.monthsInWhichSalesWereBelowAverage(sale);
+        long sales[] = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
 
-        Assertions.assertEquals(expectedBelowAverage, actualBelowAverage);
+        // вызываем целевой метод:
+        int actual = service.lessThanMiddleSales(sales);
+        int expected = 7;
+        // производим проверку (сравниваем ожидаемый и фактический):
+        assertEquals(expected, actual);
     }
-
 
     @Test
-    public void numberOfMonthsInWhichSalesWereAboveAverage() {
+    void aboveMiddleSales( ) {
         StatsService service = new StatsService();
 
-        int[] sale = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        long sales[] = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
 
-        int expectedAboveAverage = 5;
-        int actualAboveAverage = service.monthInWhichSalesWereAboveAverage(sale);
+        // вызываем целевой метод:
+        int expected = 7;
+        int actual = service.aboveMiddleSales(sales);
 
-        Assertions.assertEquals(expectedAboveAverage, actualAboveAverage);
+        // производим проверку (сравниваем ожидаемый и фактический):
+        assertEquals(expected, actual);
     }
+
 }
